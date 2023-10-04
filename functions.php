@@ -17,6 +17,9 @@ $args = array(
 'public' => true,
 'has_archive' => true,
 'supports'=>array('title','thumbnail','editor'),
+'menu_icon'=>'dashicons-products',
+'hierarchical'       => false,
+
 
 
 
