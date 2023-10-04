@@ -68,15 +68,31 @@ class CustomPostType{
 $custom_post_type = new CustomPostType();
 
 
+class EditorNameMetaBox{
 
 
-function add_editor_name_metabox(){
 
 
 
-    add_meta_box('editor-name-metabox','Editor Name','render_editor_name_metabox','post','side','high');
-}
-    add_action('add_meta_boxes','add_editor_name_metabox');
+
+    public function __construct()
+    {
+        add_action('add_meta_boxes',array($this,'add_editor_name_metabox'));
+        add_action('save_post',array($this,'save_editor_name'));
+
+
+    }
+
+
+    function add_editor_name_metabox(){
+
+
+
+        add_meta_box('editor-name-metabox','Editor Name',array($this,'render_editor_name_metabox'),'post','side','high');
+    }
+    
+
+
 
     function render_editor_name_metabox($post){
 
@@ -94,10 +110,9 @@ function add_editor_name_metabox(){
 }
 
 
-add_action('save_post','save_editor_name')
+}
 
 
-
-
+$editor_name = new EditorNameMetaBox();
 
 ?>
