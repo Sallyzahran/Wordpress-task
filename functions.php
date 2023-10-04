@@ -26,8 +26,6 @@ $args = array(
 
 );
 
-
-
 register_post_type('products',$args);
 
 
